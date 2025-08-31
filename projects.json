@@ -1,0 +1,90 @@
+[
+    {
+        "id": 1,
+        "title": "OAU Chatbot",
+        "description": "Intelligent chatbot system deployed for Obafemi Awolowo University using LLMs and LangChain for student assistance and university information queries.",
+        "category": "nlp",
+        "technologies": ["Python", "LLMs", "LangChain", "FastAPI", "Cloud Deployment"],
+        "links": [
+            { "name": "Live App", "url": "https://oau-chatbot.onrender.com" },
+            { "name": "Code", "url": "#" }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "NGX Chatbot",
+        "description": "Advanced conversational AI chatbot built with Large Language Models and LangChain for enhanced user interaction and intelligent responses.",
+        "category": "nlp",
+        "technologies": ["Python", "LLMs", "LangChain", "FastAPI", "NLP"],
+        "links": [
+            { "name": "Live App", "url": "https://ngxchatbot.onrender.com" },
+            { "name": "Code", "url": "#" }
+        ]
+    },
+    {
+        "id": 3,
+        "title": "WeApply Platform",
+        "description": "AI-powered application platform that generates personalized resumes, cover letters, and interview questions using LLMs and LangChain.",
+        "category": "generative",
+        "technologies": ["Python", "LLMs", "LangChain", "FastAPI", "Document Generation"],
+        "links": [
+            { "name": "Live App", "url": "https://weapply.onrender.com" },
+            { "name": "Demo", "url": "https://weapply.onrender.com" }
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Dementia Tester",
+        "description": "AI-powered diagnostic assessment tool for dementia testing using Large Language Models and advanced ML algorithms for medical analysis.",
+        "category": "ml",
+        "technologies": ["Python", "LLMs", "LangChain", "FastAPI", "Medical AI"],
+        "links": [
+            { "name": "Live App", "url": "https://dymentia-tester.onrender.com" },
+            { "name": "Research", "url": "#" }
+        ]
+    },
+    {
+        "id": 5,
+        "title": "Article Hub",
+        "description": "Intelligent chat interface for querying and interacting with a comprehensive database of articles using LLMs and LangChain for contextual responses.",
+        "category": "nlp",
+        "technologies": ["Python", "LLMs", "LangChain", "FastAPI", "Database Chat"],
+        "links": [
+            { "name": "Live App", "url": "https://articlehub-o6zf.onrender.com" },
+            { "name": "Demo", "url": "https://articlehub-o6zf.onrender.com" }
+        ]
+    },
+    {
+        "id": 6,
+        "title": "Library Backend System",
+        "description": "Comprehensive library management backend with advanced search, cataloging, and user management features built with FastAPI.",
+        "category": "ml",
+        "technologies": ["Python", "FastAPI", "Database", "Search Engine", "Backend API"],
+        "links": [
+            { "name": "API Docs", "url": "https://libaraybackend.onrender.com" },
+            { "name": "Code", "url": "#" }
+        ]
+    },
+    {
+        "id": 7,
+        "title": "Word Formatter Tool",
+        "description": "Intelligent document formatting and processing tool using LLMs and LangChain for automated text optimization and layout enhancement.",
+        "category": "nlp",
+        "technologies": ["Python", "LLMs", "LangChain", "FastAPI", "Document Processing"],
+        "links": [
+            { "name": "Live App", "url": "#" },
+            { "name": "Demo", "url": "#" }
+        ]
+    },
+    {
+        "id": 8,
+        "title": "Analysis Generator API",
+        "description": "Automated analysis generation system using Large Language Models to provide intelligent insights and comprehensive reports from data inputs.",
+        "category": "generative",
+        "technologies": ["Python", "LLMs", "LangChain", "FastAPI", "Data Analysis"],
+        "links": [
+            { "name": "API Docs", "url": "https://analysis-generator-api.onrender.com" },
+            { "name": "Live Demo", "url": "https://analysis-generator-api.onrender.com" }
+        ]
+    }
+]
