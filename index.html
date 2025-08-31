@@ -148,6 +148,114 @@
             background: linear-gradient(90deg, transparent, #e5e7eb, transparent);
             margin: 2rem 0;
         }
+
+        /* Dark mode styles */
+        .dark {
+            color-scheme: dark;
+        }
+
+        .dark body {
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+
+        .dark #hero {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%);
+        }
+
+        .dark .glass-card {
+            background: rgba(30, 41, 59, 0.95);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            color: #e2e8f0;
+        }
+
+        .dark .tech-badge {
+            background: linear-gradient(135deg, #334155 0%, #475569 100%);
+            color: #94a3b8;
+            border: 1px solid rgba(148, 163, 184, 0.3);
+        }
+
+        .dark .section-divider {
+            background: linear-gradient(90deg, transparent, #475569, transparent);
+        }
+
+        .dark nav {
+            background-color: #1e293b;
+            border-bottom: 1px solid #334155;
+        }
+
+        .dark footer {
+            background-color: #0f172a;
+        }
+
+        /* Dark mode toggle button */
+        .dark-mode-toggle {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            z-index: 100;
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode-toggle:hover {
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 8px 25px rgba(79, 70, 229, 0.6);
+        }
+
+        .dark .dark-mode-toggle {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4);
+        }
+
+        .dark .dark-mode-toggle:hover {
+            box-shadow: 0 8px 25px rgba(251, 191, 36, 0.6);
+        }
+
+        /* Additional dark mode styles */
+        .dark #about {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+        }
+
+        .dark #experience {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #1e293b 100%);
+        }
+
+        .dark #projects {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+        }
+
+        .dark #contact {
+            background-color: #1e293b;
+        }
+
+        .dark .modal {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .dark .modal-content {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: #e2e8f0;
+        }
+
+        .dark input, .dark textarea, .dark select {
+            background-color: #334155;
+            border-color: #475569;
+            color: #e2e8f0;
+        }
+
+        .dark input:focus, .dark textarea:focus, .dark select:focus {
+            border-color: #6366f1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
     </style>
 </head>
 <body class="font-sans bg-gray-50 text-gray-800">
@@ -161,9 +269,14 @@
                 <a href="#projects" class="hover:text-indigo-600 transition">Projects</a>
                 <a href="#contact" class="hover:text-indigo-600 transition">Contact</a>
             </div>
-            <button id="mobile-menu-button" class="md:hidden text-gray-600">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
+            <div class="flex items-center space-x-4">
+                <button id="dark-mode-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                    <i class="fas fa-moon text-xl"></i>
+                </button>
+                <button id="mobile-menu-button" class="md:hidden text-gray-600">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
         </div>
         <!-- Mobile menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg">
@@ -198,7 +311,7 @@
                     Developing end-to-end machine learning models and AI tools to solve real-world problems with cutting-edge technologies.
                 </p>
                 <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="#projects" class="btn-primary bg-white text-indigo-600 px-8 py-4 rounded-xl font-semibold hover:bg-indigo-50 transition-all duration-300 shadow-lg text-center">
+                    <a href="#projects" class="bg-white text-indigo-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg text-center">
                         <i class="fas fa-rocket mr-2"></i>View Projects
                     </a>
                     <a href="#contact" class="border-2 border-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-indigo-600 transition-all duration-300 backdrop-blur-sm text-center">
@@ -720,6 +833,38 @@
             }
         }
 
+        // Dark mode functionality
+        function initializeDarkMode() {
+            const darkModeToggle = document.getElementById('dark-mode-toggle');
+            const html = document.documentElement;
+            const icon = darkModeToggle.querySelector('i');
+
+            // Check for saved dark mode preference or default to light mode
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                html.classList.add('dark');
+                icon.className = 'fas fa-sun text-xl';
+            } else {
+                html.classList.remove('dark');
+                icon.className = 'fas fa-moon text-xl';
+            }
+
+            // Toggle dark mode
+            darkModeToggle.addEventListener('click', () => {
+                html.classList.toggle('dark');
+
+                if (html.classList.contains('dark')) {
+                    localStorage.setItem('theme', 'dark');
+                    icon.className = 'fas fa-sun text-xl';
+                } else {
+                    localStorage.setItem('theme', 'light');
+                    icon.className = 'fas fa-moon text-xl';
+                }
+            });
+        }
+
         // Mobile menu toggle
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             const menu = document.getElementById('mobile-menu');
@@ -1010,7 +1155,10 @@
 
         // Initialize projects on page load
         document.addEventListener('DOMContentLoaded', async () => {
-            // Initialize admin mode first
+            // Initialize dark mode
+            initializeDarkMode();
+
+            // Initialize admin mode
             initializeAdminMode();
 
             // Load and render projects
